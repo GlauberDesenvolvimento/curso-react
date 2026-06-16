@@ -3,9 +3,14 @@ import Save from './contatos/save/';
 import Search from './contatos/search/';
 import { BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
+const basename =
+  process.env.NODE_ENV === "production"
+    ? "/curso-react-build"
+    : "";
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary navbar-contatos">
         <div className="container">
           <ul className="navbar-nav">
