@@ -1,0 +1,22 @@
+.salvar-contato{
+    margin-top: 2em;
+}
+.salvar-contato .form-group{
+    position: relative;
+    line-height: 0.5;
+    padding-bottom: 0.4em;
+}
+.salvar-contato .btn-sm{
+    line-height: 1.5;
+}
+.salvar-contato .text-danger{
+    font-size: 0.72em;
+    position: absolute;
+    top: 5em;
+    right: 0;
+}
+@media screen and (max-width: 365px){
+    .salvar-contato{
+        margin-top: 4em;
+    }
+}

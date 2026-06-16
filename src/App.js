@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Contatos from './contatos/';
+import Save from './contatos/save/';
+import Search from './contatos/search/';
+import { BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary navbar-contatos">
+        <div className="container">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link' } to="/contatos">Contatos</NavLink >
+            </li>
+            <li className="nav-item">
+              <NavLink end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link' } to="/contatos/save">Novo</NavLink >
+            </li>
+          </ul>
+          <Search/>
+        </div>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Navigate to="/contatos" replace />} />
+        <Route path="/contatos" element={<Contatos />} />
+        <Route path="/contatos/save" element={<Save />} />
+        <Route path="/contatos/save/:id" element={<Save />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
